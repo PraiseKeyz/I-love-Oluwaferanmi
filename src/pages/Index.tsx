@@ -1,12 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import FloatingEmojis from "@/components/FloatingEmojis";
+import Envelope from "@/components/Envelope";
+import LoveLetter from "@/components/LoveLetter";
+
+const RECIPIENT_NAME = "My Love"; // 👈 Change this to her name!
 
 const Index = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
+      <FloatingEmojis />
+      {!isOpen ? (
+        <Envelope onOpen={() => setIsOpen(true)} recipientName={RECIPIENT_NAME} />
+      ) : (
+        <LoveLetter recipientName={RECIPIENT_NAME} />
+      )}
     </div>
   );
 };
