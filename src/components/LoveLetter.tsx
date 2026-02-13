@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Music, Heart } from "lucide-react";
-import PolaroidGallery from "./PolaroidGallery";
+import { Music, Heart, Sparkles, ArrowRight } from "lucide-react";
+import MemoryBloom from "./MemoryBloom";
 
 interface LoveLetterProps {
   recipientName: string;
+  onComplete: () => void;
 }
 
-const LoveLetter = ({ recipientName }: LoveLetterProps) => {
-  const [showMusic, setShowMusic] = useState(false);
+const LoveLetter = ({ recipientName, onComplete }: LoveLetterProps) => {
   const [visible, setVisible] = useState(false);
 
   // Trigger entrance animation
@@ -16,40 +16,14 @@ const LoveLetter = ({ recipientName }: LoveLetterProps) => {
   });
 
   return (
-    <div className="min-h-screen relative z-10 px-4 py-8 md:py-16 flex flex-col items-center">
-      {/* Music toggle */}
-      <button
-        onClick={() => setShowMusic(!showMusic)}
-        className="fixed top-4 right-4 z-50 bg-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
-        aria-label="Toggle music"
-      >
-        <Music className="w-5 h-5" />
-      </button>
-
-      {/* Music player */}
-      {showMusic && (
-        <div className="fixed top-16 right-4 z-50 bg-card rounded-lg shadow-xl p-3 w-72">
-          <p className="text-xs text-muted-foreground mb-2 font-body">🎵 Our Song</p>
-          <iframe
-            width="100%"
-            height="80"
-            src="https://www.youtube.com/embed/450p7goxZqg?si=auto&autoplay=1"
-            title="Valentine's music"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="rounded"
-          />
-          <p className="text-xs text-muted-foreground mt-1 font-body">
-            Replace the YouTube link with your song! 🎶
-          </p>
-        </div>
-      )}
+    <div className="min-h-screen relative z-10 px-4 py-8 md:py-16 flex flex-col items-center overflow-hidden">
+      {/* Background Memories Bloom */}
+      {visible && <MemoryBloom />}
 
       {/* The Letter */}
       <div
-        className={`max-w-2xl w-full transition-all duration-1000 ease-out ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`max-w-2xl w-full transition-all duration-1000 ease-out mb-20 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         <div
           className="bg-valentine-cream rounded-lg shadow-2xl p-6 md:p-10 relative"
@@ -95,16 +69,18 @@ const LoveLetter = ({ recipientName }: LoveLetterProps) => {
         </div>
       </div>
 
-      {/* Polaroid Gallery */}
-      <div
-        className={`w-full max-w-4xl mt-16 transition-all duration-1000 delay-500 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
-        <h3 className="text-3xl md:text-4xl font-handwriting text-primary text-center mb-8">
-          Our Memories 📸
-        </h3>
-        <PolaroidGallery />
+      {/* Continue to Memories Button */}
+      <div className={`transition-all duration-1000 delay-500 ${visible ? "opacity-100" : "opacity-0"}`}>
+        <div className="text-center mb-6">
+          <p className="font-body text-muted-foreground italic">p.s. I have one last thing to show you...</p>
+        </div>
+        <button
+          onClick={onComplete}
+          className="group relative px-10 py-5 bg-primary text-white rounded-full text-2xl font-body font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-4 mx-auto"
+        >
+          See Our Memories 📸
+          <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+        </button>
       </div>
 
       {/* Footer */}
