@@ -71,13 +71,12 @@ const FinalProposal = ({ recipientName, onAccept }: FinalProposalProps) => {
 
     return (
         <div className="fixed inset-0 z-[150] bg-valentine-blush flex flex-col items-center justify-center p-6 overflow-hidden">
-            <div className="text-center mb-12 animate-in fade-in duration-1000">
+            <div className="text-center mb-12 animate-in fade-in zoom-in slide-in-from-bottom-20 duration-[1500ms] ease-out">
                 <h2 className="text-4xl md:text-7xl font-handwriting text-primary mb-12 px-4 leading-tight">
                     {recipientName}, will you be my Valentine?
                 </h2>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                    {/* YES BUTTON */}
                     <button
                         onClick={handleYes}
                         className="group relative px-12 py-6 md:px-16 md:py-8 bg-primary text-white rounded-full text-3xl md:text-4xl font-body font-bold shadow-2xl hover:scale-110 active:scale-95 transition-all z-20"
@@ -86,7 +85,6 @@ const FinalProposal = ({ recipientName, onAccept }: FinalProposalProps) => {
                         <div className="absolute -inset-2 bg-primary/20 rounded-full blur animate-pulse" />
                     </button>
 
-                    {/* NO BUTTON (The Dodger) */}
                     <button
                         onMouseEnter={moveNoButton}
                         onClick={moveNoButton}
@@ -103,7 +101,6 @@ const FinalProposal = ({ recipientName, onAccept }: FinalProposalProps) => {
                 </div>
             </div>
 
-            {/* Background Decor */}
             <div className="absolute bottom-10 left-10 opacity-20 hidden md:block">
                 <Heart className="w-32 h-32 text-primary rotate-12" fill="currentColor" />
             </div>

@@ -13,7 +13,6 @@ const Envelope = ({ onOpen, recipientName }: EnvelopeProps) => {
     if (isOpening) return;
     setIsOpening(true);
 
-    // Fire confetti
     confetti({
       particleCount: 150,
       spread: 80,
@@ -56,16 +55,13 @@ const Envelope = ({ onOpen, recipientName }: EnvelopeProps) => {
         className="group relative cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
         aria-label="Open the envelope"
       >
-        {/* Envelope body */}
         <div
-          className={`w-64 h-44 md:w-80 md:h-52 bg-gradient-to-br from-valentine-rose to-valentine-red rounded-lg shadow-2xl relative overflow-visible transition-all duration-500 ${
-            isOpening ? "scale-95 opacity-80" : ""
-          }`}
+          className={`w-64 h-44 md:w-80 md:h-52 bg-gradient-to-br from-valentine-rose to-valentine-red rounded-lg shadow-2xl relative overflow-visible transition-all duration-500 ${isOpening ? "scale-95 opacity-80" : ""
+            }`}
           style={{
             animation: !isOpening ? "pulse-glow 2s ease-in-out infinite" : "none",
           }}
         >
-          {/* Envelope flap (triangle) */}
           <div
             className={`absolute -top-0 left-0 w-0 h-0 transition-all duration-700 ease-in-out`}
             style={{
@@ -77,16 +73,13 @@ const Envelope = ({ onOpen, recipientName }: EnvelopeProps) => {
             }}
           />
 
-          {/* Heart seal */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-5xl md:text-6xl drop-shadow-lg">💌</span>
           </div>
 
-          {/* Letter peeking out */}
           <div
-            className={`absolute left-4 right-4 bg-valentine-cream rounded-t-md transition-all duration-700 ease-out ${
-              isOpening ? "-top-16 opacity-100" : "top-2 opacity-0"
-            }`}
+            className={`absolute left-4 right-4 bg-valentine-cream rounded-t-md transition-all duration-700 ease-out ${isOpening ? "-top-16 opacity-100" : "top-2 opacity-0"
+              }`}
             style={{ height: "60px" }}
           >
             <div className="p-3 text-center">
@@ -95,7 +88,6 @@ const Envelope = ({ onOpen, recipientName }: EnvelopeProps) => {
           </div>
         </div>
 
-        {/* Click hint */}
         {!isOpening && (
           <p className="mt-6 text-primary font-body font-semibold text-sm md:text-base animate-bounce">
             💗 Tap to open 💗

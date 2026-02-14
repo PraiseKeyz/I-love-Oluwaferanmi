@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with subtle gradient -->
+  <rect width="1200" height="630" fill="#FFF5F5"/>
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#EB7E90;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#EB7E90;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad1)"/>
+
+  <!-- Decorative Sparkles -->
+  <circle cx="200" cy="150" r="3" fill="#EB7E90" opacity="0.6"/>
+  <circle cx="1000" cy="450" r="4" fill="#EB7E90" opacity="0.4"/>
+  <circle cx="150" cy="500" r="2" fill="#EB7E90" opacity="0.5"/>
+  <circle cx="1100" cy="100" r="3" fill="#EB7E90" opacity="0.6"/>
+
+  <!-- Main Heart Shape -->
+  <path d="M600 450C600 450 380 330 380 210C380 143.7 433.7 90 500 90C542 90 579.5 111.4 600 144.1C620.5 111.4 658 90 700 90C766.3 90 820 143.7 820 210C820 330 600 450 600 450Z" fill="#EB7E90" />
+  
+  <!-- Gloss effect on heart -->
+  <path d="M520 120C480 120 440 150 440 210" stroke="white" stroke-width="8" stroke-linecap="round" opacity="0.3" />
+
+  <!-- Text -->
+  <text x="50%" y="540" text-anchor="middle" fill="#EB7E90" font-family="Georgia, serif" font-size="52" font-style="italic" font-weight="bold">A Special Secret for You</text>
+  <text x="50%" y="590" text-anchor="middle" fill="#EB7E90" font-family="Arial, sans-serif" font-size="20" letter-spacing="0.3em" font-weight="bold">HAPPY VALENTINE'S DAY</text>
+
+  <!-- Small floating hearts -->
+  <path d="M100 100 Q100 70 120 70 T140 100 Q140 130 100 160 Q60 130 60 100 T80 70 T100 100" fill="#EB7E90" opacity="0.3" transform="scale(0.5) translate(300, 100) rotate(-15)"/>
+  <path d="M100 100 Q100 70 120 70 T140 100 Q140 130 100 160 Q60 130 60 100 T80 70 T100 100" fill="#EB7E90" opacity="0.3" transform="scale(0.4) translate(2200, 800) rotate(20)"/>
+</svg>

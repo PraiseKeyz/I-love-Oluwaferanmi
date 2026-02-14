@@ -8,6 +8,8 @@ const QUOTES = [
     "You are the piece of me I didn't know was missing.",
     "My heart is, and always will be, yours.",
     "Loving you is the best thing I've ever done.",
+    "Every day with you is my new favorite adventure.",
+    "You're the first and last thing on my mind, every single day.",
 ];
 
 interface IntroSequenceProps {
@@ -38,13 +40,12 @@ const IntroSequence = ({ onComplete, recipientName }: IntroSequenceProps) => {
         }
     }, [discardedIds]);
 
-    // Calculate fan position for a card at index i out of total remaining
     const getFanStyle = (i: number, total: number): React.CSSProperties => {
         const center = (total - 1) / 2;
         const diff = i - center;
-        const angle = diff * 12; // Rotate based on position
-        const xOffset = diff * 50; // Spread horizontally
-        const yOffset = Math.abs(diff) * 15; // Arc effect
+        const angle = diff * 12;
+        const xOffset = diff * 50;
+        const yOffset = Math.abs(diff) * 15;
 
         return {
             left: `calc(50% + ${xOffset}px)`,
@@ -55,7 +56,6 @@ const IntroSequence = ({ onComplete, recipientName }: IntroSequenceProps) => {
 
     return (
         <div className="min-h-screen relative flex flex-col items-center justify-start p-6 bg-valentine-blush overflow-hidden">
-            {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className={`mt-12 text-center transition-all duration-1000 ${activeCardId !== null ? "opacity-20 scale-95 blur-sm" : "opacity-100"}`}>
@@ -74,7 +74,6 @@ const IntroSequence = ({ onComplete, recipientName }: IntroSequenceProps) => {
                 </div>
             </div>
 
-            {/* The Fan Container */}
             <div className="absolute inset-0 pointer-events-none">
                 {remainingQuotes.map((q, i) => (
                     <div key={q.id} className="pointer-events-auto">
@@ -93,15 +92,13 @@ const IntroSequence = ({ onComplete, recipientName }: IntroSequenceProps) => {
                 ))}
             </div>
 
-            {/* Overlay when a card is selected */}
             {activeCardId !== null && (
                 <div
                     className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-500 animate-in fade-in"
-                    onClick={() => { }} // Block clicks to background
+                    onClick={() => { }}
                 />
             )}
 
-            {/* Finale Transition */}
             {showFinale && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-valentine-blush animate-in fade-in duration-1000">
                     <div className="text-center p-8 max-w-lg">
@@ -129,7 +126,6 @@ const IntroSequence = ({ onComplete, recipientName }: IntroSequenceProps) => {
                 </div>
             )}
 
-            {/* Progress Counter */}
             {discardedIds.length < QUOTES.length && activeCardId === null && (
                 <div className="absolute bottom-10 flex gap-3 animate-in fade-in slide-in-from-bottom-5 delay-500">
                     {QUOTES.map((_, i) => (

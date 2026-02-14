@@ -1,19 +1,37 @@
 import { useState, useEffect } from "react";
+import Image14 from "@/assets/Image14.jpg";
+import Image6 from "@/assets/Image6.jpg";
+import Image8 from "@/assets/Image8.jpg";
+import Image9 from "@/assets/Image9.jpg";
+import Image13 from "@/assets/Image13.jpg";
 import Image1 from "@/assets/Image1.jpg";
 import Image2 from "@/assets/Image2.jpg";
 import Image3 from "@/assets/Image3.jpg";
 import Image4 from "@/assets/Image4.jpg";
 import Image5 from "@/assets/Image5.jpg";
-import Image6 from "@/assets/Image6.jpg";
+import Image7 from "@/assets/Image7.jpg";
+import Image10 from "@/assets/Image10.jpg";
+import Image11 from "@/assets/Image11.jpg";
+import Image12 from "@/assets/Image12.jpg";
+
 import { ChevronLeft, ChevronRight, Heart, ArrowRight } from "lucide-react";
 
 const PHOTOS = [
-    { url: Image1, caption: "Our first date 💕" },
-    { url: Image2, caption: "That sunset 🌅" },
-    { url: Image3, caption: "Being goofy 🤪" },
-    { url: Image4, caption: "My favorite smile 😊" },
-    { url: Image5, caption: "Us vs the world 🌍" },
-    { url: Image6, caption: "Forever vibes ✨" },
+    { url: Image14, caption: "Our first picture 💕" },
+    { url: Image6, caption: "That sunset 🌅" },
+    { url: Image8, caption: "Being goofy 🤪" },
+    { url: Image9, caption: "My favorite smile 😊" },
+    { url: Image13, caption: "Us vs the world 🌍" },
+    { url: Image1, caption: "Just you being cute ❤️" },
+    { url: Image2, caption: "Another beautiful moment ✨" },
+    { url: Image3, caption: "Always the cute Baby 🌹" },
+    { url: Image4, caption: "The way you look at me... 🥰" },
+    { url: Image5, caption: "Pure happiness 💖" },
+    { url: Image7, caption: "One for the books 📚" },
+    { url: Image10, caption: "Life's an adventure with you 🗺️" },
+    { url: Image11, caption: "Steady and strong 💪" },
+    { url: Image12, caption: "So many more to come! 🥂" },
+    { url: Image14, caption: "Forever vibes ✨" },
 ];
 
 interface SlideshowProps {

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { Heart, Timer } from "lucide-react";
+import { Heart, Timer, Sparkles } from "lucide-react";
 
 interface ForeverClockProps {
     startDate: string; // Anniversary date in ISO format or similar
     recipientName: string;
+    onComplete: () => void;
 }
 
-const ForeverClock = ({ startDate, recipientName }: ForeverClockProps) => {
+const ForeverClock = ({ startDate, recipientName, onComplete }: ForeverClockProps) => {
     const [timeSince, setTimeSince] = useState({
         days: 0,
         hours: 0,
@@ -71,10 +72,21 @@ const ForeverClock = ({ startDate, recipientName }: ForeverClockProps) => {
                     "Every second has been a blessing, and I'll love you for infinity more, {recipientName}."
                 </p>
 
-                <div className="mt-12 flex items-center justify-center gap-2 text-primary">
-                    <Heart className="fill-current w-4 h-4" />
-                    <Heart className="fill-current w-6 h-6" />
-                    <Heart className="fill-current w-4 h-4" />
+                <div className="mt-12 flex flex-col items-center gap-6 animate-in fade-in duration-1000 delay-1000">
+                    <button
+                        onClick={onComplete}
+                        className="group relative px-8 py-4 bg-primary text-white rounded-full text-lg font-body font-bold shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-3 mx-auto"
+                    >
+                        <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                        Forever Yours
+                        <Heart className="w-5 h-5 fill-white group-hover:scale-125 transition-transform" />
+                    </button>
+
+                    <div className="flex items-center justify-center gap-2 text-primary/40">
+                        <Heart className="fill-current w-4 h-4" />
+                        <Heart className="fill-current w-6 h-6" />
+                        <Heart className="fill-current w-4 h-4" />
+                    </div>
                 </div>
             </div>
         </div>

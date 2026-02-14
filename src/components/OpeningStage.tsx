@@ -15,7 +15,6 @@ const OpeningStage = ({ onComplete, onAction }: OpeningStageProps) => {
         onAction();
         setIsExploded(true);
 
-        // Big Bang Confetti
         const duration = 2 * 1000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -33,8 +32,6 @@ const OpeningStage = ({ onComplete, onAction }: OpeningStageProps) => {
             confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
             confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
         }, 250);
-
-        // Initial big burst
         confetti({
             particleCount: 200,
             spread: 100,
@@ -72,7 +69,6 @@ const OpeningStage = ({ onComplete, onAction }: OpeningStageProps) => {
                 </p>
             </div>
 
-            {/* Subtle background particles */}
             <div className="absolute inset-0 pointer-events-none opacity-20">
                 {[...Array(20)].map((_, i) => (
                     <div
